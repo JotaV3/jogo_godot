@@ -1,0 +1,85 @@
+[gd_scene load_steps=13 format=3 uid="uid://cil46a4l7ermm"]
+
+[ext_resource type="Texture2D" uid="uid://cgh6vq3ywupjd" path="res://assets/Traps/Saw/On (38x38).png" id="1_fja73"]
+[ext_resource type="Script" path="res://scenes/trap.gd" id="1_qko3v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nu3i6"]
+radius = 18.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs77c"]
+atlas = ExtResource("1_fja73")
+region = Rect2(0, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on2ci"]
+atlas = ExtResource("1_fja73")
+region = Rect2(38, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_as0el"]
+atlas = ExtResource("1_fja73")
+region = Rect2(76, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3shm"]
+atlas = ExtResource("1_fja73")
+region = Rect2(114, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp5j0"]
+atlas = ExtResource("1_fja73")
+region = Rect2(152, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqk17"]
+atlas = ExtResource("1_fja73")
+region = Rect2(190, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmgse"]
+atlas = ExtResource("1_fja73")
+region = Rect2(228, 0, 38, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dvnlw"]
+atlas = ExtResource("1_fja73")
+region = Rect2(266, 0, 38, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_50ixq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs77c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on2ci")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_as0el")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3shm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp5j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqk17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmgse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dvnlw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 20.0
+}]
+
+[node name="trap" type="Area2D"]
+scale = Vector2(1.68, 1.68)
+script = ExtResource("1_qko3v")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_nu3i6")
+
+[node name="animation" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_50ixq")
+animation = &"idle"
+autoplay = "idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://de2qkeuk4ir00"]
+
+[ext_resource type="Script" path="res://scenes/menu.gd" id="1_gx8ou"]
+[ext_resource type="Texture2D" uid="uid://c7qfa8jy8sc1j" path="res://assets/Menu/Buttons/Play.png" id="2_xf3a8"]
+[ext_resource type="Texture2D" uid="uid://bugle36nuchmy" path="res://assets/Menu/Buttons/Restart.png" id="3_ddp0v"]
+[ext_resource type="Texture2D" uid="uid://j3u1g6bhopld" path="res://assets/Menu/Buttons/Close.png" id="4_5ok0e"]
+
+[node name="menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_gx8ou")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -23.0
+offset_bottom = 24.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="quit" type="Button" parent="HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+icon = ExtResource("4_5ok0e")
+flat = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 29.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+
+[node name="pause" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("2_xf3a8")
+flat = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.5
+offset_right = 14.5
+offset_bottom = 30.0
+grow_horizontal = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="restart" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+icon = ExtResource("3_ddp0v")
+flat = true
+
+[connection signal="pressed" from="HBoxContainer3/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="HBoxContainer2/restart" to="." method="_on_restart_pressed"]
