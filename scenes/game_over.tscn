@@ -1,9 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://cwe1rrmdqun2u"]
+[gd_scene load_steps=3 format=3 uid="uid://cwe1rrmdqun2u"]
 
 [ext_resource type="Script" path="res://scenes/game_over.gd" id="1_tkd7r"]
+[ext_resource type="Texture2D" uid="uid://cxi8w1xe4k0g7" path="res://assets/Background/Gray.png" id="2_7rk8m"]
 
 [node name="game_over" type="CanvasLayer"]
 script = ExtResource("1_tkd7r")
+
+[node name="background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -3.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_7rk8m")
+stretch_mode = 1
 
 [node name="game_over" type="Label" parent="."]
 offset_left = 433.0
@@ -11,7 +23,7 @@ offset_top = 139.5
 offset_right = 719.0
 offset_bottom = 208.5
 size_flags_horizontal = 4
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 0.243427, 0.312854, 1)
 theme_override_font_sizes/font_size = 50
 text = "GAME OVER"
 
@@ -30,14 +42,18 @@ size_flags_vertical = 8
 [node name="restart" type="Button" parent="container"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "REINICIAR"
+flat = true
 
 [node name="quit" type="Button" parent="container"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 30
 text = "SAIR"
+flat = true
 
 [connection signal="pressed" from="container/restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="container/quit" to="." method="_on_quit_pressed"]

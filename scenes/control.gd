@@ -17,8 +17,10 @@ func _ready():
 func _process(delta):
 	score.text = str("Score: %d" % Manager.score)
 	
-	if seconds == 0:
+	if seconds <= 0 && Manager.score < 30:
 		get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+	elif Manager.score == 30:
+		get_tree().change_scene_to_file("res://scenes/game_won.tscn")
 
 func _on_timer_timeout():
 	seconds -= 1
